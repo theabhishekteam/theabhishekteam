@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Odisha Travel | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <h1>Odisha Travel</h1>
+      <p>Explore Odisha within your budget</p>
+
+      <div class="input-group">
+        <input id="phone" type="tel" placeholder="+91 9876543210" />
+        <button onclick="sendOTP()">Send OTP</button>
+      </div>
+
+      <div class="input-group otp hidden">
+        <input id="otp" type="number" placeholder="Enter OTP" />
+        <button onclick="verifyOTP()">Verify</button>
+      </div>
+
+      <p id="status"></p>
+
+    </div>
+  </div>
+
+  <!-- Firebase + Auth -->
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
