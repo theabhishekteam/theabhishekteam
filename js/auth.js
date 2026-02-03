@@ -10,7 +10,6 @@ const auth = getAuth(app);
 const statusText = document.getElementById("status");
 const otpBox = document.querySelector(".otp");
 
-// Setup invisible reCAPTCHA
 window.recaptchaVerifier = new RecaptchaVerifier(
   "recaptcha-container",
   { size: "invisible" },
@@ -18,17 +17,17 @@ window.recaptchaVerifier = new RecaptchaVerifier(
 );
 
 window.sendOTP = function () {
-  const phoneNumber = document.getElementById("phone").value;
+  const phone = document.getElementById("phone").value;
 
-  if (!phoneNumber.startsWith("+91")) {
-    statusText.innerText = "Use format: +91XXXXXXXXXX";
+  if (!phone.startsWith("+91")) {
+    statusText.innerText = "Use format +91XXXXXXXXXX";
     return;
   }
 
-  signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier)
+  signInWithPhoneNumber(auth, phone, window.recaptchaVerifier)
     .then((confirmationResult) => {
       window.confirmationResult = confirmationResult;
-      statusText.innerText = "OTP sent to your phone";
+      statusText.innerText = "OTP sent";
       otpBox.classList.remove("hidden");
     })
     .catch((error) => {
